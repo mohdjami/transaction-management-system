@@ -5,7 +5,10 @@ import rateLimit from 'express-rate-limit';
 import mongoose from 'mongoose';
 import { AppError } from './utils/errors';
 import l from './utils/logger';
+import userRoutes from './routes/user.routes';
+import transactionRoutes from './routes/transaction.routes';
 
+// Create Express app
 const app = express();
 
 // Security middleware
@@ -31,6 +34,8 @@ app.get('/',(req:Request, res:Response)=>{
     message: "Everything looks good!!"
   })
 })
+app.use('/api/users', userRoutes);
+app.use('/api/transactions', transactionRoutes);
 
 // Global error handler
 const errorHandler: ErrorRequestHandler = (err, req, res, _next): void => {
