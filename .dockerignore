@@ -1,0 +1,18 @@
+# .dockerignore
+node_modules
+npm-debug.log
+pnpm-debug.log
+.git
+.gitignore
+.env
+.env.*
+.env.production
+!.env.example
+.vscode
+coverage
+*.md
+.DS_Store
+tests
+docs
+logs
+*.log
