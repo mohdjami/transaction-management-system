@@ -1,8 +1,8 @@
 # Transaction Management System
 
-### Live URL - http://3.110.28.184:80
-### Docker Hub Image: https://hub.docker.com/r/mohdjami/orbit-wallet
-### Postman API Documentation - https://documenter.getpostman.com/view/26354863/2sAYJ9BJq3
+Live URL - http://3.110.151.236:80
+Docker Hub Image: https://hub.docker.com/r/mohdjami/orbit-wallet
+Postman API Documentation - https://documenter.getpostman.com/view/26354863/2sAYJ9BJq3#09469761-cece-4849-ac3c-045f83a2c253
 
 A modern Node.js API for managing user transactions with advanced filtering and pagination capabilities.
 
