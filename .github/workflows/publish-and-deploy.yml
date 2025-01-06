@@ -37,9 +37,9 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-            docker pull ${{ secrets.DOCKER_USERNAME }}/orbit-wallet:latest
-            docker stop orbit || true
-            docker rm orbit || true
-            docker run -d --name orbit -p 80:3000 --env-file .env.production ${{ secrets.DOCKER_USERNAME }}/orbit-wallet:latest
+            sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/orbit-wallet:latest
+            sudo docker stop orbit || true
+            sudo docker rm orbit || true
+            sudo docker run -d --name orbit -p 80:3000 --env-file .env.production ${{ secrets.DOCKER_USERNAME }}/orbit-wallet:latest
           EOF
