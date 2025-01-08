@@ -1,4 +1,4 @@
-name: Deploy to EC2
+name: Publish Image and deploy to EC2
 
 on:
   push:
@@ -41,5 +41,5 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/orbit-wallet:latest
             sudo docker stop orbit || true
             sudo docker rm orbit || true
-            sudo docker run -d --name orbit -p 80:3000 --env-file .env.production ${{ secrets.DOCKER_USERNAME }}/orbit-wallet:latest
-          EOF
+            sudo docker run -d --name orbit -p 80:3000 -e NODE_ENV=${{ secrets.NODE_ENV }} -e PORT=${{ secrets.PORT }} -e MONGODB_URI=${{ secrets.MONGODB_URI }} -e LOG_LEVEL=${{ secrets.LOG_LEVEL }} -e RATE_LIMIT_WINDOW_MS=${{ secrets.RATE_LIMIT_WINDOW_MS }} -e RATE_LIMIT_MAX=${{ secrets.RATE_LIMIT_MAX }} mohdjami/orbit-wallet:latest
+            EOF
